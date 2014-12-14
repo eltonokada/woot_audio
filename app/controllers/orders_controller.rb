@@ -12,17 +12,19 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     respond_to do |format|
-      if @order.save
 
+      if @order.save
         shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
 
         shopping_cart.shopping_cart_items.each do |item|
           product = Product.find(item.item_id)
-          product.quantity = product.quantity - item.quantity
-
+          product.quantity = (product.quantity.to_i - item.quantity.to_i)
+          product.save!
           OrderProduct.create(product_id: item.item_id, quantity: item.quantity, order_id: @order.id)
         end
 
+        shopping_cart.clear
+        
         format.html { redirect_to root_path, notice: "Order sent!" }
       else
         format.html { render :new }

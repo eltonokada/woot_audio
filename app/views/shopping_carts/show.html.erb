@@ -9,9 +9,12 @@
     <td colspan="2"></td>
   </tr>
   <% @shopping_cart.shopping_cart_items.each do |shopping_cart_item| %>
+
+    <% product = Product.find(shopping_cart_item.item_id) %>
+
     <tr>
       <td><%= shopping_cart_item.item.title %></td>
-      <td><input type="number" value="<%= shopping_cart_item.quantity %>" name="quantity" class="form-control quantity" style="padding: 5px"></td>
+      <td><input type="number" max="<%= product.quantity %>" value="<%= shopping_cart_item.quantity %>" name="quantity" class="form-control quantity" style="padding: 5px"></td>
       <td><%= number_to_currency(shopping_cart_item.item.price) %></td>
       <td><%= number_to_currency(shopping_cart_item.item.price * shopping_cart_item.quantity) %></td>
       <td align="center">
