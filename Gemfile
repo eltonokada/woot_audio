@@ -33,6 +33,8 @@ gem 'acts_as_shopping_cart', '~> 0.2.1'
 
 gem 'attr_encrypted'
 
+gem 'pg'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
