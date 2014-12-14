@@ -1,0 +1,6 @@
+<h2><%= @category.name.capitalize %></h2>
+<hr />
+<% @products.each do |product| %>
+    <%= render partial: "/products/product_item", locals: {product: product} %>
+<% end %>
+<br clear="all" />

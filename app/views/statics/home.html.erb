@@ -1,0 +1,26 @@
+<!-- Jumbotron Header -->
+<header class="jumbotron hero-spacer">
+    <h1>Woot Audio!</h1>
+    <p>The best shop to buy earphones and earbuds, enjoy!</p>
+    </p>
+</header>
+
+<hr>
+
+<!-- Title -->
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Featured Products</h3>
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- Page Features -->
+<div class="row text-center">
+    <% @featured_products.each do |product| %>
+        <%= render partial: "/products/product_item", locals: {product: product} %>
+    <% end %>
+    <br clear="all" />
+
+</div>
+<!-- /.row -->
