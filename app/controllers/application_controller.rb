@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   before_filter :shopping_cart_items
 
   def shopping_cart_items
-    @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+    if !session[:shopping_cart_id].nil?
+      @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+    end
   end
 
 end

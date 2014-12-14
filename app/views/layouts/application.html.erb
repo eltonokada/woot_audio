@@ -55,7 +55,7 @@
                         <a href="/statics/faq">FAQ</a>
                     </li>
                     <li>
-                        <a href="/shopping_cart">Shopping Cart [ <%= @shopping_cart.shopping_cart_items.length %>  product(s) ]</a>
+                        <a href="/shopping_cart">Shopping Cart [ <%= @shopping_cart.shopping_cart_items.try(:length) %>  product(s) ]</a>
                     </li>
                 </ul>
             </div>
