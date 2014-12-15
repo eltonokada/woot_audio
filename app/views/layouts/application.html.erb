@@ -64,17 +64,12 @@
                              <% end %>
                             </a>
                     </li>
-
-                    <% if admin_signed_in? %>
-                      <li>
+                    <li>
+                      <%= link_to('Admin', "/products")  %>
+                    </li>                    
+                    <li>
                       <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>        
-                      </li>
-                    <% else %>
-                      <li>
-                      <%= link_to('Login', "/products")  %>
-                      </li>
-                    <% end %>                    
-
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
